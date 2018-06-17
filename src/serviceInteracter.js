@@ -18,15 +18,6 @@ const getData = (req, res) => {
     var n = d.getTime();
 
     let resultsArray = []
-    var port = req.app.settings.port || process.env.port;
-    var url = req.protocol + '://' + req.host  + ( port == 80 || port == 443 ? '' : ':'+port ) + req.path;
-
-    console.log("url is ", url)
-    console.log("req.url is ", req.url)
-    console.log("req.params is ", req.params)
-    console.log("req.query is ", req.query)
-
-
 
     let id = req.params.id;
     if (id.length == 0){
@@ -61,7 +52,7 @@ const getData = (req, res) => {
          });
       });
     });
-    // connect to localhost:21 as anonymous
+    // connect to host as anonymous
     c.connect({
       host: 'ftp.ncdc.noaa.gov'
     });
